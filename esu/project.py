@@ -159,4 +159,5 @@ class Project(BaseAPI):
         """
         if self.id is None:
             raise ObjectHasNoId
-        return self._get_list('v1/paas_template', 'esu.PaasTemplate', project_id=self.id)
+        return self._get_list('v1/paas_template', 'esu.PaasTemplate',
+                              project_id=self.id)

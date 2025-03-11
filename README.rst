@@ -4,7 +4,7 @@
 rcp-python
 ===========
 
-Python-библиотека для работы с Rustack Cloud Platform
+Python-библиотека для работы с BCC
 
 
 Установка

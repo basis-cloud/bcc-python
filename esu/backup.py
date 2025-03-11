@@ -38,11 +38,13 @@ class Backup(BaseAPI):
        vdc (object): Объект ВЦОДа :class:`esu.Vdc`
        retain_cycles (int): Глубина хранения задачи резервного копирования
        time (str): Время выполнения задачи по расписанию в UTC
-       week_days (list): Дни недели выполнения задачи по расписанию [1,2,3]
+       schedule_type (str): Тип расписания (every_day, days_week, days_month,
+                            last_day_month)
+       schedule_days (list): Дни выполнения задачи по расписанию [1,2,3]
        vms (list): Список серверов для которых создана задача
 
-   .. note:: Поля ``name``, ``vms``, ``retain_cycles``, ``week_days``, ``time``
-                могут быть изменены для существующего объекта.
+   .. note:: Поля ``name``, ``vms``, ``retain_cycles``, ``schedule_days``,
+             ``time`` могут быть изменены для существующего объекта.
    """
     class Meta:
         id = Field()
@@ -50,7 +52,8 @@ class Backup(BaseAPI):
         vdc = Field('esu.Vdc')
         vms = FieldList(VmInBackup)
         retain_cycles = Field()
-        week_days = Field()
+        schedule_type = Field()
+        schedule_days = Field()
         time = Field()
         size = Field()
 
@@ -103,7 +106,8 @@ class Backup(BaseAPI):
         job = {
             'name': self.name,
             'vdc': self.vdc.id,
-            'week_days': self.week_days,
+            'schedule_type': self.schedule_type,
+            'schedule_days': self.schedule_days,
             'time': self.time,
             'retain_cycles': self.retain_cycles,
             'vms': vms

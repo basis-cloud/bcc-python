@@ -2,6 +2,7 @@ import json
 import os
 
 import responses
+from responses.matchers import json_params_matcher
 
 from esu.base import BaseAPI
 
@@ -31,8 +32,7 @@ def load_fixtures(func):
 
                 if not has_querystring:
                     # Check request body
-                    params['match'] = \
-                        [responses.json_params_matcher(data['request'])]
+                    params['match'] = [json_params_matcher(data['request'])]
 
                 rsps.add(**params)
 
