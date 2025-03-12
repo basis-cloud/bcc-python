@@ -25,8 +25,8 @@ Backup
 
   vdc = Vdc.get_object('d5cd2cdc-b5b0-4d2e-8bc6-ea3f019745f9')
   vm = Vm.get_object('d5cd2cdc-b5b0-4d2e-8bc6-ea3f019745f9')
-  backup = Backup(name="Test_Backup", vdc=vdc, vms=[vm], week_days=[1, 2],
-                  time="09:00:00", retain_cycles=2)
+  backup = Backup(name="Test_Backup", vdc=vdc, vms=[vm], schedule_days=[1, 2],
+                  schedule_type='every_day', time="09:00:00", retain_cycles=2)
 
 
 Немедленно запустить выполнение задачи - создать точку восстановления:

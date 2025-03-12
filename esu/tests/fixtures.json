@@ -8908,7 +8908,7 @@
             "description": "",
             "schedule_enabled": true,
             "retain_cycles": 14,
-            "week_days": [1],
+            "schedule_days": [1],
             "time": "09:00:00",
             "locked": false,
             "size": 0.9108,
@@ -8926,8 +8926,9 @@
         "request": {
             "name": "Test_Backup",
             "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
+            "schedule_days": [1, 2],
             "retain_cycles": 2,
-            "week_days": [1, 2],
+            "schedule_type": "days_week",
             "time": "09:00:00",
             "vms": ["954fd467-fd9a-4ce7-b4df-1e81e557bce9"]
         },
@@ -8955,7 +8956,8 @@
             "description": "",
             "schedule_enabled": true,
             "retain_cycles": 2,
-            "week_days": [1, 2],
+            "schedule_type": "days_week",
+            "schedule_days": [1, 2],
             "time": "09:00:00",
             "locked": true,
             "size": 0.0
@@ -8997,7 +8999,8 @@
             "description": "",
             "schedule_enabled": true,
             "retain_cycles": 14,
-            "week_days": [1],
+            "schedule_days": [1],
+            "schedule_type": "days_week",
             "time": "09:00:00",
             "locked": false,
             "size": 0.9108,
@@ -9007,7 +9010,8 @@
             "name": "New_Backup",
             "vdc": "71d4a2a1-c74b-444c-87ae-e3ff27fe8ccd",
             "retain_cycles": 14,
-            "week_days": [1],
+            "schedule_days": [1],
+            "schedule_type": "days_week",
             "time": "09:00:00",
             "vms": ["9869038f-605d-4fe1-97a1-2607e6b97f50",
                 "954fd467-fd9a-4ce7-b4df-1e81e557bce9"]
@@ -9045,7 +9049,8 @@
             "description": "",
             "schedule_enabled": true,
             "retain_cycles": 2,
-            "week_days": [1,2],
+            "schedule_days": [1,2],
+            "schedule_type": "days_week",
             "time": "11:00:00",
             "locked": false,
             "size": 0.9108,
@@ -9055,7 +9060,8 @@
             "name": "Backup_renamed",
             "vdc": "71d4a2a1-c74b-444c-87ae-e3ff27fe8ccd",
             "retain_cycles": 2,
-            "week_days": [1,2],
+            "schedule_days": [1,2],
+            "schedule_type": "days_week",
             "time": "11:00:00",
             "vms": ["9869038f-605d-4fe1-97a1-2607e6b97f50"]
         }
@@ -9380,7 +9386,7 @@
                     "description": "",
                     "schedule_enabled": true,
                     "retain_cycles": 14,
-                    "week_days": [
+                    "schedule_days": [
                         1
                     ],
                     "time": "08:00:00",
@@ -9412,7 +9418,7 @@
                     "description": "",
                     "schedule_enabled": true,
                     "retain_cycles": 1,
-                    "week_days": [
+                    "schedule_days": [
                         1
                     ],
                     "time": "09:00:00",

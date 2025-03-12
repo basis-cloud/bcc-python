@@ -34,6 +34,10 @@ class TaskFailed(BaseEx):
     pass
 
 
+class RequestFailed(BaseEx):
+    pass
+
+
 class Field:
     def __init__(self, class_name=None, *, allow_none=False):
         self._class_name = class_name
@@ -65,7 +69,8 @@ class BaseAPI:
     token = None
     endpoint_url = ''
 
-    def __new__(cls, *args, token: str = None, endpoint_url: str = '', **kwargs):
+    def __new__(cls, *args, token: str = None, endpoint_url: str = '',
+                **kwargs):
         rules = {}
         for k in cls.Meta.__dict__:
             if k.startswith('_'):
@@ -79,7 +84,8 @@ class BaseAPI:
             setattr(instance, k, None)
 
         instance.token = token or os.environ.get('ESU_API_TOKEN', cls.token)
-        instance.endpoint_url = endpoint_url or os.environ.get('ESU_API_URL', cls.endpoint_url)
+        instance.endpoint_url = endpoint_url or os.environ.get(
+            'ESU_API_URL', cls.endpoint_url)
         instance.kwargs = kwargs
         instance._fill()
 
@@ -107,7 +113,10 @@ class BaseAPI:
         if resp.status_code == 404:
             raise NotFoundEx('Resource not found')
 
-        resp.raise_for_status()
+        try:
+            resp.raise_for_status()
+        except Exception as ex:
+            raise RequestFailed(f'{ex}\n{resp.text}')
 
         if resp.status_code not in (202, 204):
             if 'config' in resource:

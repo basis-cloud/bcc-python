@@ -22,7 +22,7 @@ def test_get_by_id(resp):
     assert backup.id == 'f01776bb-968b-4b8f-835c-669535a9d0eb'
     assert backup.name == 'New_Backup'
     assert backup.time == '09:00:00'
-    assert backup.week_days == [1]
+    assert backup.schedule_days == [1]
     assert backup.size == 0.9108
     assert isinstance(backup.vms[0], VmInBackup)
 
@@ -34,14 +34,15 @@ def test_create(rsps):
     vdc = Vdc.get_object(vdc_id)
     vm = Vm.get_object(vm_id)
 
-    backup = Backup(name="Test_Backup", vdc=vdc, vms=[vm], week_days=[1, 2],
+    backup = Backup(name="Test_Backup", vdc=vdc, vms=[vm],
+                    schedule_days=[1, 2], schedule_type="days_week",
                     time="09:00:00", retain_cycles=2)
     backup.create()
 
     assert backup.id
     assert backup.name == "Test_Backup"
     assert backup.vdc.id == vdc_id
-    assert backup.week_days == [1, 2]
+    assert backup.schedule_days == [1, 2]
     assert backup.retain_cycles == 2
     assert backup.time == "09:00:00"
     assert backup.vms[0].id == vm_id
@@ -56,6 +57,7 @@ def test_add_one_more_vm(rsps):
     assert backup.name == "New_Backup"
 
     backup.vms.append(vm)
+    backup.schedule_type = "days_week"
     backup.save()
 
     assert len(backup.vms) == 2
@@ -67,18 +69,19 @@ def test_reconfig_backup(rsps):
     backup = Backup().get_object(id='f01776bb-968b-4b8f-835c-669535a9d0eb')
     assert backup.name == "New_Backup"
     assert backup.retain_cycles == 14
-    assert backup.week_days == [1]
+    assert backup.schedule_days == [1]
     assert backup.time == "09:00:00"
 
     backup.name = "Backup_renamed"
     backup.time = "11:00:00"
     backup.retain_cycles = 2
-    backup.week_days = [1, 2]
+    backup.schedule_days = [1, 2]
+    backup.schedule_type = "days_week"
     backup.save()
 
     assert backup.name == "Backup_renamed"
     assert backup.retain_cycles == 2
-    assert backup.week_days == [1, 2]
+    assert backup.schedule_days == [1, 2]
     assert backup.time == "11:00:00"
 
 
