@@ -117,6 +117,7 @@ class Port(BaseAPI):
 
         if self.id is None:
             port['network'] = self.network.id
+            port['vdc'] = self.vdc.id if self.vdc else None
             if self.vm is not None:
                 port['vm'] = self.vm.id
             elif self.router is not None:

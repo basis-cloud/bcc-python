@@ -7625,6 +7625,92 @@
         "request": {
             "vm": "17580bd1-b548-4214-8614-6cfee656bd6f",
             "network": "09110dd6-2868-40f7-9aca-e4cda281ad0d",
+            "vdc": null,
+            "ip_address": "0.0.0.0",
+            "fw_templates": []
+        }
+    },
+    {
+        "method": "POST",
+        "url": "https://api.example.com/v1/port",
+        "status": 201,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS",
+            "X-Esu-Tasks": "b0cb8707-ca5d-4001-a394-517cd767dfff"
+        },
+        "response": {
+            "id": "954fd467-fd9a-4ce7-b4df-1e81e557bce9",
+            "ctime": "2021-09-07T00:02:50.556842",
+            "network": {
+                "id": "9c7d5517-e920-4df0-aced-0146c3f67ff8",
+                "name": "Default",
+                "external": false
+            },
+            "ip_address": "192.168.45.2",
+            "fw_templates": [],
+            "connected": null,
+            "locked": true,
+            "job_id": "b0cb8707-ca5d-4001-a394-517cd767dfff",
+            "type": "orphan_int",
+            "router": {
+                "id": "58385696-32c6-4a5c-bafe-895815eedf04",
+                "name": "Renamed default router",
+                "is_default": true,
+                "locked": false
+            },
+            "enable_security": false
+        },
+        "request": {
+            "network": "9c7d5517-e920-4df0-aced-0146c3f67ff8",
+            "vdc": null,
+            "ip_address": "0.0.0.0",
+            "fw_templates": []
+        }
+    },
+    {
+        "method": "POST",
+        "url": "https://api.example.com/v1/port",
+        "status": 201,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS",
+            "X-Esu-Tasks": "b0cb8707-ca5d-4001-a394-517cd767dfff"
+        },
+        "response": {
+            "id": "954fd467-fd9a-4ce7-b4df-1e81e557bce9",
+            "ctime": "2021-09-07T00:02:50.556842",
+            "network": {
+                "id": "9c7d5517-e920-4df0-aced-0146c3f67ff8",
+                "name": "Default",
+                "external": false
+            },
+            "ip_address": "192.168.45.2",
+            "fw_templates": [],
+            "connected": null,
+            "locked": true,
+            "job_id": "b0cb8707-ca5d-4001-a394-517cd767dfff",
+            "type": "orphan_int",
+            "router": {
+                "id": "58385696-32c6-4a5c-bafe-895815eedf04",
+                "name": "Renamed default router",
+                "is_default": true,
+                "locked": false
+            },
+            "enable_security": false,
+            "vdc": {
+                "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
+                "name": "kvm",
+                "hypervisor": {
+                    "id": "124d8f7d-c806-4221-8f59-19363c6b2d08",
+                    "name": "kvm",
+                    "type": "kvm"
+                }
+            }
+        },
+        "request": {
+            "network": "9c7d5517-e920-4df0-aced-0146c3f67ff8",
+            "vdc": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
             "ip_address": "0.0.0.0",
             "fw_templates": []
         }
@@ -7651,7 +7737,7 @@
             "connected": null,
             "locked": true,
             "job_id": "b0cb8707-ca5d-4001-a394-517cd767dfff",
-            "type": "orphan_int",
+            "type": "orphan_user_ext",
             "router": {
                 "id": "58385696-32c6-4a5c-bafe-895815eedf04",
                 "name": "Renamed default router",
@@ -7662,6 +7748,54 @@
         },
         "request": {
             "network": "09110dd6-2868-40f7-9aca-e4cda281ad0d",
+            "vdc": null,
+            "ip_address": "0.0.0.0",
+            "fw_templates": []
+        }
+    },
+    {
+        "method": "POST",
+        "url": "https://api.example.com/v1/port",
+        "status": 201,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS",
+            "X-Esu-Tasks": "b0cb8707-ca5d-4001-a394-517cd767dfff"
+        },
+        "response": {
+            "id": "954fd467-fd9a-4ce7-b4df-1e81e557bce9",
+            "ctime": "2021-09-07T00:02:50.556842",
+            "network": {
+                "id": "09110dd6-2868-40f7-9aca-e4cda281ad0d",
+                "name": "Default",
+                "external": false
+            },
+            "ip_address": "192.168.45.2",
+            "fw_templates": [],
+            "connected": null,
+            "locked": true,
+            "job_id": "b0cb8707-ca5d-4001-a394-517cd767dfff",
+            "type": "orphan_user_ext",
+            "router": {
+                "id": "58385696-32c6-4a5c-bafe-895815eedf04",
+                "name": "Renamed default router",
+                "is_default": true,
+                "locked": false
+            },
+            "enable_security": false,
+            "vdc": {
+                "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
+                "name": "kvm",
+                "hypervisor": {
+                    "id": "124d8f7d-c806-4221-8f59-19363c6b2d08",
+                    "name": "kvm",
+                    "type": "kvm"
+                }
+            }
+        },
+        "request": {
+            "network": "09110dd6-2868-40f7-9aca-e4cda281ad0d",
+            "vdc": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
             "ip_address": "0.0.0.0",
             "fw_templates": []
         }

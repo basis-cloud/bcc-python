@@ -6,14 +6,51 @@ from esu.vm import Vm
 
 
 @load_fixtures
-def test_create_port(resp):
-    network = Network().get_object(id='09110dd6-2868-40f7-9aca-e4cda281ad0d')
+def test_create_port_int(resp):
+    network = Network().get_object(id='9c7d5517-e920-4df0-aced-0146c3f67ff8')
     port = Port(network=network)
     port.create()
 
     assert isinstance(port, Port)
     assert port.network.id == network.id
     assert port.type == 'orphan_int'
+
+
+@load_fixtures
+def test_create_port_int_with_vdc(resp):
+    network = Network().get_object(id='9c7d5517-e920-4df0-aced-0146c3f67ff8')
+    vdc = Vdc().get_object(id='70eb1ec5-3e54-4df8-a096-ec26526ec89b')
+    port = Port(network=network, vdc=vdc)
+    port.create()
+
+    assert isinstance(port, Port)
+    assert port.network.id == network.id
+    assert port.vdc.id == vdc.id
+    assert port.type == 'orphan_int'
+
+
+@load_fixtures
+def test_create_port_user_ext(resp):
+    network = Network().get_object(id='09110dd6-2868-40f7-9aca-e4cda281ad0d')
+    port = Port(network=network)
+    port.create()
+
+    assert isinstance(port, Port)
+    assert port.network.id == network.id
+    assert port.type == 'orphan_user_ext'
+
+
+@load_fixtures
+def test_create_port_user_ext_with_vdc(resp):
+    network = Network().get_object(id='09110dd6-2868-40f7-9aca-e4cda281ad0d')
+    vdc = Vdc().get_object(id='70eb1ec5-3e54-4df8-a096-ec26526ec89b')
+    port = Port(network=network, vdc=vdc)
+    port.create()
+
+    assert isinstance(port, Port)
+    assert port.network.id == network.id
+    assert port.vdc.id == vdc.id
+    assert port.type == 'orphan_user_ext'
 
 
 @load_fixtures
